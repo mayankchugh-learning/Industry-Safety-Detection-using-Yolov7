@@ -5,7 +5,9 @@
 ## Workflows
 
 
+- [Data link]()
 
+- [Yolov7 Github repo link](https://github.com/WongKinYiu/yolov7)
 
 ## Live matarials docs
 
@@ -25,7 +27,7 @@ git push origin main
 ## How to run?
 
 ```bash
-conda create -n safety python=3.8 -y
+conda create -n safety python=3.9 -y
 ```
 
 ```bash
