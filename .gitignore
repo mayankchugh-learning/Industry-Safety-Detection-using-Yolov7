@@ -161,3 +161,4 @@ cython_debug/
 artifacts/*
 docs
 .DS_Store
+isd_data_mini.zip
