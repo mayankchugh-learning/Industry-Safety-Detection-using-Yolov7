@@ -1,5 +1,5 @@
-train: /content/drive/MyDrive/005_BOKTIAR_AHMED_BAPPY/My-Course/ISD/train.txt
-val: /content/drive/MyDrive/005_BOKTIAR_AHMED_BAPPY/My-Course/ISD/val.txt
+train: /Users/mayankchugh/gitRepos/mayankchugh.learning/Industry-Safety-Detection-using-Yolov7/train.txt
+val: /Users/mayankchugh/gitRepos/mayankchugh.learning/Industry-Safety-Detection-using-Yolov7//val.txt
 
 nc: 5
 names: ['Helmet','Goggles','Jacket','Gloves','Footwear']

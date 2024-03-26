@@ -51,3 +51,11 @@ class ModelTrainerConfig:
     no_epochs = MODEL_TRAINER_NO_EPOCHS
 
     batch_size = MODEL_TRAINER_BATCH_SIZE
+
+
+
+@dataclass
+class ModelPusherConfig:
+    MODEL_BUCKET_NAME: str = MODEL_BUCKET_NAME
+    S3_MODEL_KEY_PATH: str = S3_MODEL_NAME
+	
