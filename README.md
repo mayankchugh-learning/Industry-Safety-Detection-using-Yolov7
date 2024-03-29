@@ -104,7 +104,7 @@ python app.py
 
 	sudo apt-get update -y
 
-	sudo apt-get upgrade
+	sudo apt-get upgrade -y
 	
 	#required
 
@@ -115,6 +115,8 @@ python app.py
 	sudo usermod -aG docker ubuntu
 
 	newgrp docker
+
+    docker --version
 	
 # 6. Configure EC2 as self-hosted runner:
     setting>actions>runner>new self hosted runner> choose os> then run command one by one
@@ -128,6 +130,6 @@ python app.py
 
     AWS_REGION = us-east-1
 
-    AWS_ECR_LOGIN_URI = demo>>  566373416292.dkr.ecr.ap-south-1.amazonaws.com
+    AWS_ECR_LOGIN_URI = demo>>  845628765594.dkr.ecr.us-east-1.amazonaws.com/yolov7app
 
     ECR_REPOSITORY_NAME = simple-app
