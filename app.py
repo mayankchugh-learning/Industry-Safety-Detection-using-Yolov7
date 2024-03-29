@@ -63,6 +63,7 @@ def download_model_s3()-> str:
 @cross_origin()
 def predictRoute():
     try:
+        os.system("rm -rf yolov7/runs")
         image = request.json['image']
         decodeImage(image, clApp.filename)
 

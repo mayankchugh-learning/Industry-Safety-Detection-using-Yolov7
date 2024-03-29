@@ -1,0 +1,52 @@
+
+Dockerfile
+
+FROM ubuntu:20.04
+
+# Update the package lists
+RUN apt-get update
+
+# Install any necessary dependencies
+# ...
+
+# Set the working directory
+WORKDIR /app
+
+# Expose port 8080
+EXPOSE 8080
+
+# Start the application
+CMD ["/bin/bash"]
+
+
+------------------------------------
+docker build -t my-ubuntu-image .
+
+docker run -it -p 8080:8080 my-ubuntu-image
+
+
+apt-get install git Y
+
+apt-get install curl Y
+
+git clone https://github.com/mayankchugh-learning/Industry-Safety-Detection-using-Yolov7.git
+
+cd Industry-Safety-Detection-using-Yolov7/
+
+    sudo apt-get update -y
+
+	sudo apt-get upgrade -y
+	
+	#required
+
+	curl -fsSL https://get.docker.com -o get-docker.sh
+
+	sudo sh get-docker.sh
+
+	sudo usermod -aG docker root
+
+	newgrp docker
+
+    docker --version
+
+    docker build -t yolov7 .
