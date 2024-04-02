@@ -72,7 +72,6 @@ python app.py
 
 	2. ECR: Elastic Container registry to save your docker image in aws
 
-
 	#Description: About the deployment
 
 	1. Build docker image of the source code
@@ -100,12 +99,22 @@ python app.py
 
 ## 5. Open EC2 and Install docker in EC2 Machine:
 	
-	
 	#optinal
 
 	sudo apt-get update -y
 
 	sudo apt-get upgrade -y
+
+	sudo apt install awscli -y
+
+	aws configure
+
+	-- setup -- folloing 
+	AWS_ACCESS_KEY_ID=
+
+    AWS_SECRET_ACCESS_KEY=
+
+    AWS_REGION = us-east-1
 	
 	#required
 
@@ -139,3 +148,10 @@ python app.py
     docker pull 845628765594.dkr.ecr.us-east-1.amazonaws.com/yolov7app:latest
 
     docker pull ${{secrets.AWS_ECR_LOGIN_URI}}/${{ secrets.ECR_REPOSITORY_NAME }}:latest
+
+aws ce get-cost-and-usage                                  \
+      --time-period 'Start=2024-03-01,End=2024-04-01'        \
+      --metrics     'UnblendedCost'                          \
+      --granularity 'MONTHLY'                                \
+      --query       'ResultsByTime[*].Total.[UnblendedCost]' \
+      --output      'table'
