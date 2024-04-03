@@ -109,6 +109,7 @@ python app.py
 
 	aws configure
 
+
 	-- setup -- folloing 
 	AWS_ACCESS_KEY_ID=
 
@@ -149,9 +150,14 @@ python app.py
 
     docker pull ${{secrets.AWS_ECR_LOGIN_URI}}/${{ secrets.ECR_REPOSITORY_NAME }}:latest
 
+
+
 aws ce get-cost-and-usage                                  \
       --time-period 'Start=2024-03-01,End=2024-04-01'        \
       --metrics     'UnblendedCost'                          \
       --granularity 'MONTHLY'                                \
       --query       'ResultsByTime[*].Total.[UnblendedCost]' \
       --output      'table'
+
+
+	  aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 845628765594.dkr.ecr.us-east-1.amazonaws.com/yolov7app:latest
