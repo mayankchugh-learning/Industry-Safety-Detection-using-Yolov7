@@ -63,7 +63,7 @@ def download_model_s3()-> str:
 @cross_origin()
 def predictRoute():
     try:
-        #os.system("rm -rf yolov7/runs")
+        os.system("rm -rf yolov7/runs")
         image = request.json['image']
         decodeImage(image, clApp.filename)
 
@@ -90,7 +90,7 @@ def predictRoute():
 
         opencodedbase64 = encodeImageIntoBase64("yolov7/runs/detect/exp/inputImage.jpg")
         result = {"image": opencodedbase64.decode('utf-8')}
-        #os.system("rm -rf yolov7/runs")
+        os.system("rm -rf yolov7/runs")
 
     except ValueError as val:
         logging.info(val)
@@ -106,6 +106,4 @@ def predictRoute():
 
 if __name__ == "__main__":
     clApp = ClientApp()
-    app.run(host="0.0.0.0", port=8000)
-    
-
+    app.run(host="0.0.0.0", port=8080)
