@@ -1,6 +1,6 @@
 import os,sys
 import yaml
-from isd.utils.main_utils import read_yaml_file
+from isd.utils.main_utils import read_yaml_file, detect_os
 from six.moves import urllib
 from isd.logger import logging
 from isd.exception import isdException
@@ -53,8 +53,13 @@ class ModelTrainer:
 
 
             #training
-            os.system(f"cd yolov7 && python train.py --batch {self.model_trainer_config.batch_size} --cfg cfg/training/custom_yolov7.yaml --epochs {self.model_trainer_config.no_epochs} --data data/custom.yaml --weights 'yolov7.pt'")
+            os_string = detect_os()
+            print("Operating System OS_string ß: ",os_string)
 
+            if os_string == "Linux":
+                os.system(f"cd yolov7 && python3 train.py --batch {self.model_trainer_config.batch_size} --cfg cfg/training/custom_yolov7.yaml --epochs {self.model_trainer_config.no_epochs} --data data/custom.yaml --weights 'yolov7.pt'")
+            else: 
+                os.system(f"cd yolov7 && python train.py --batch {self.model_trainer_config.batch_size} --cfg cfg/training/custom_yolov7.yaml --epochs {self.model_trainer_config.no_epochs} --data data/custom.yaml --weights 'yolov7.pt'")
 
             os.system("cp yolov7/runs/train/exp/weights/best.pt yolov7/")
             os.makedirs(self.model_trainer_config.model_trainer_dir, exist_ok=True)

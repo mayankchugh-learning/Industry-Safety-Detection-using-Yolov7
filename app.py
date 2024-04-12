@@ -1,7 +1,7 @@
 import sys,os
 from isd.pipeline.training_pipeline import TrainPipeline
 from isd.exception import isdException
-from isd.utils.main_utils import decodeImage, encodeImageIntoBase64
+from isd.utils.main_utils import decodeImage, encodeImageIntoBase64, detect_os
 from flask import Flask, request, jsonify, render_template,Response
 from flask_cors import CORS, cross_origin
 from isd.configuration.s3_operations import S3Operation
@@ -63,17 +63,34 @@ def download_model_s3()-> str:
 @cross_origin()
 def predictRoute():
     try:
-        os.system("rm -rf yolov7/runs")
+        #os.system("rm -rf yolov7/runs")
         image = request.json['image']
         decodeImage(image, clApp.filename)
 
         model_file = download_model_s3()
-        logging.info("downloaded model_file: ",model_file)
-        os.system("cd yolov7/ && python detect.py --weights best.pt  --source ../data/inputImage.jpg")
+        logging.info("sucess downloaded model_file: ")
+
+        os_string = detect_os()
+        print("Operating System OS_string ß: ",os_string)
+
+        if os_string == "Linux":
+            os.system("cd yolov7/ && python3 detect.py --weights best.pt  --source ../data/inputImage.jpg")
+        else:
+            os.system("cd yolov7/ && python detect.py --weights best.pt  --source ../data/inputImage.jpg")
+
+        logging.info("next command downloaded model_file: ")
+
+        if os.path.exists("yolov7/runs/detect/exp/inputImage.jpg"):
+            logging.info(f"File path yolov7/runs/detect/exp/inputImage.jpg already exists")
+        else:
+           os.system("cd yolov7/ && mkdir runs")
+           os.system("cd yolov7/runs && mkdir detect")
+           os.system("cd yolov7/runs/detect && mkdir exp")
+
 
         opencodedbase64 = encodeImageIntoBase64("yolov7/runs/detect/exp/inputImage.jpg")
         result = {"image": opencodedbase64.decode('utf-8')}
-        os.system("rm -rf yolov7/runs")
+        #os.system("rm -rf yolov7/runs")
 
     except ValueError as val:
         logging.info(val)
@@ -89,6 +106,6 @@ def predictRoute():
 
 if __name__ == "__main__":
     clApp = ClientApp()
-    app.run(host="0.0.0.0", port=8080)
+    app.run(host="0.0.0.0", port=8000)
     
 

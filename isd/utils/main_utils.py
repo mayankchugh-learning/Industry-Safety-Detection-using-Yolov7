@@ -2,6 +2,7 @@ import os.path
 import sys
 import yaml
 import base64
+import platform
 
 from isd.exception import isdException
 from isd.logger import logging
@@ -27,3 +28,14 @@ def decodeImage(imgstring, fileName):
 def encodeImageIntoBase64(croppedImagePath):
     with open(croppedImagePath, "rb") as f:
         return base64.b64encode(f.read())
+    
+def detect_os():
+    system = platform.system()
+    if system == 'Windows':
+        return "Windows"
+    elif system == 'Linux':
+        return "Linux"
+    elif system == 'Darwin':
+        return "Mac"
+    else:
+        return "Unknown"

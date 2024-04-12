@@ -44,7 +44,7 @@ aws configure
 ## How to run?
 
 ```bash
-conda create -n safety python=3.9 -y
+	conda create -n safety python=3.9 -y
 ```
 
 ```bash
@@ -109,6 +109,9 @@ python app.py
 
 	aws configure
 
+export AWS_ACCESS_KEY_ID=
+export AWS_SECRET_ACCESS_KEY=
+export AWS_DEFAULT_REGION=
 
 	-- setup -- folloing 
 	AWS_ACCESS_KEY_ID=
