@@ -2,6 +2,21 @@
 
 ## https://hub.docker.com/_/ubuntu
 
+
+## install docker
+
+```bash
+	curl -fsSL https://get.docker.com -o get-docker.sh
+
+	sudo sh get-docker.sh
+
+	sudo usermod -aG docker ubuntu
+
+	newgrp docker
+
+    docker --version
+```
+
 ## download image
 
 ```bash
@@ -109,6 +124,16 @@ aws --version
 ```bash
 python3 app.py
 ```
+## to list all containers 
+```bash
+docker ps -a
+```
+
+## to go into docker conatiner 
+```bash
+docker exec -it <container_id> /bin/bash
+```
+
 
 # docker image
 
