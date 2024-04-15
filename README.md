@@ -151,7 +151,7 @@ export AWS_DEFAULT_REGION=
 
     docker pull 845628765594.dkr.ecr.us-east-1.amazonaws.com/yolov7app:latest
 
-    docker pull ${{secrets.AWS_ECR_LOGIN_URI}}/${{ secrets.ECR_REPOSITORY_NAME }}:latest
+    docker pull ${{secrets.AWS_ECR_LOGIN_URI}}/${{secrets.ECR_REPOSITORY_NAME }}:latest
 
 
 

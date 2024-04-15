@@ -77,9 +77,6 @@ apt-get install pip -y
 apt-get install libgl1-mesa-glx -y
 ```
 
-```bash
-apt install build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev wget
-```
 ## install git
 ```bash
 apt-get install git -y

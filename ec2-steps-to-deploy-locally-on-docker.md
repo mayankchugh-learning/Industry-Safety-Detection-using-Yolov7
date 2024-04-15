@@ -13,7 +13,6 @@ sudo apt-get update -y
 sudo apt-get upgrade -y
 ```
 
-
 ## install python      
 ```bash
 sudo apt-get install python3
@@ -48,10 +47,6 @@ AWS_DEFAULT_REGION=us-east-1
 
 ```bash
 sudo apt-get install libgl1-mesa-glx -y
-```
-
-```bash
-apt-get install build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev
 ```
 
 ## install wget
